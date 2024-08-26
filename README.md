@@ -1,38 +1,40 @@
-# Cryptowallet
+# Cryptowallet (暗号ウォレット)
 
-## Установка и развертка
-- __Через основную машину(желательно дистр Linux)__
-  - Замените `.env.example` на `.env` и настройте
-  - `pip3 install poetry` - установка поетри, нужна 3.11 версия питона
+## 著者: カムランプラトフ【Kamran　Pulatov】
+
+## インストールとセットアップ
+- __メインマシン（Linuxディストリビューションが推奨）から__
+  - `.env.example` を `.env` に名前変更し、設定します。
+  - `pip3 install poetry` - Poetry をインストールします。Python 3.11 バージョンが必要です。
   - `poetry install`
   - `poetry shell`
   - `python -m app.main`
 
-- __Через Docker__
+- __Docker 経由で__
   - `docker-compose build`
   - `docker-compose up -d`
 
-## Документация
-Переходите по ссылке запущенного сервера на директорию `/docs` (ex. `http://127.0.0.1:8000/docs`)
+## ドキュメント
+起動したサーバーの `/docs` ディレクトリにアクセスしてください（例: `http://127.0.0.1:8000/docs`）
 
-## Миграции с Базой Данных
-* __Через Linux__
-  - `make migration message=WHAT_MIGRATION_DOES` - Создание версии миграции
-  - `make migrate` - Сама миграция
+## データベースマイグレーション
+* __Linux 経由で__
+  - `make migration message=WHAT_MIGRATION_DOES` - マイグレーションのバージョンを作成します。
+  - `make migrate` - 実際のマイグレーションを実行します。
 
-* __Через Windows__
-  - `alembic revision --autogenerate --message=WHAT_MIGRATION_DOES` - Создание версии миграции
-  - `alembic upgrade head` - Сама миграция
+* __Windows 経由で__
+  - `alembic revision --autogenerate --message=WHAT_MIGRATION_DOES` - マイグレーションのバージョンを作成します。
+  - `alembic upgrade head` - 実際のマイグレーションを実行します。
 
-## Тестирование
+## テスト
 `pytest tests`
 
-## Deployment via Uvicorn
+## Uvicorn 経由でのデプロイメント
 ```
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-## Used Technologies
+## 使用技術
 <div>
   <img src="https://img.shields.io/badge/fastapi-black?style=for-the-badge&logo=fastapi"/>
   <img src="https://img.shields.io/badge/redis-black?style=for-the-badge&logo=redis"/>
